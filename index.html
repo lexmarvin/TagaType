@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>TagaType - Professional Tagalog Typing Test</title>
+</head>
+<body>
+<div class="container">
+    <header class="header">
+        <div class="logo">
+            <h1>TagaType</h1>
+            <span class="subtitle">Professional Tagalog Typing Test</span>
+        </div>
+        <div class="controls">
+            <button class="control-btn" id="refresh-btn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="1 4 1 10 7 10"></polyline>
+                    <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>
+                </svg>
+            </button>
+            <div class="word-count-selector">
+                <select id="word-count" class="select-btn">
+                    <option value="25">25 words</option>
+                    <option value="50" selected>50 words</option>
+                    <option value="100">100 words</option>
+                </select>
+            </div>
+        </div>
+    </header>
+
+    <div class="stats-bar">
+        <div class="stat">
+            <span class="stat-label">WPM</span>
+            <span class="stat-value" id="wpm">0</span>
+        </div>
+        <div class="stat">
+            <span class="stat-label">Accuracy</span>
+            <span class="stat-value" id="accuracy">100%</span>
+        </div>
+        <div class="stat">
+            <span class="stat-label">Time</span>
+            <span class="stat-value" id="time">0s</span>
+        </div>
+    </div>
+
+    <div class="typing-area">
+        <div class="display-area" id="display-area"></div>
+        <textarea id="user-input" placeholder="Magsimula sa pag-type..." disabled></textarea>
+    </div>
+
+    <div class="results-modal" id="results-modal">
+        <div class="modal-content">
+            <h2>Test Complete!</h2>
+            <div class="final-stats">
+                <div class="final-stat">
+                    <span class="final-stat-value" id="final-wpm">0</span>
+                    <span class="final-stat-label">WPM</span>
+                </div>
+                <div class="final-stat">
+                    <span class="final-stat-value" id="final-accuracy">100%</span>
+                    <span class="final-stat-label">Accuracy</span>
+                </div>
+                <div class="final-stat">
+                    <span class="final-stat-value" id="final-time">0s</span>
+                    <span class="final-stat-label">Time</span>
+                </div>
+            </div>
+            <button class="retry-btn" id="retry-btn">Try Again</button>
+        </div>
+    </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
