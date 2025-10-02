@@ -254,10 +254,10 @@
                         {/* Header */}
                         <header className="text-center mb-8">
                             <h1 className="text-4xl md:text-6xl font-bold text-white mb-2 floating-animation">
-                                TypeMaster
+                                TagaType
                             </h1>
                             <p className="text-lg text-white/80 pulse-animation">
-                                Master your typing skills with precision
+                                Master your typing skills with precision and speed in Tagalog!
                             </p>
                         </header>
                         
