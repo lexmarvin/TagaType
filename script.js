@@ -14,7 +14,21 @@
             'pula', 'puti', 'itim', 'dilaw', 'asul', 'berde', 'kahel', 'lila', 'rosas', 'kulay-abo',
             'malaki', 'maliit', 'mataas', 'mababa', 'mahaba', 'maikli', 'mataba', 'payat', 'maganda', 'pangit',
             'mabait', 'masama', 'matalino', 'tanga', 'masipag', 'tamad', 'mayaman', 'mahirap', 'masaya', 'malungkot',
-            'mainit', 'malamig', 'masakit', 'masarap', 'mapait', 'matamis', 'maalat', 'maasim', 'mabango', 'mabaho'
+            'mainit', 'malamig', 'masakit', 'masarap', 'mapait', 'matamis', 'maalat', 'maasim', 'mabango', 'mabaho', 
+            'umakyat', 'bumaba', 'sumakay', 'bumaba', 'umupo', 'tumayo', 'humiga', 'pumasok', 'lumabas', 'nag-aral',
+            'nagtrabaho', 'naglinis', 'naglaro', 'nagpahinga', 'naglakad', 'nagmaneho', 'nagbayad', 'nagtanong', 
+            'sumagot', 'nagkwento','umorder', 'nagbenta', 'naghintay', 'naghanap', 'nakita', 'narinig', 'naamoy', 
+            'nalasahan', 'nadama', 'naramdaman','umasa', 'naniwala', 'nagtiwala', 'nag-isip', 'nangarap', 
+            'nagplano', 'nagsimula', 'natapos', 'nakatulog', 'nagising','gabi', 'umaga', 'hapon', 'tanghali', 
+            'oras', 'araw', 'buwan', 'taon', 'linggo', 'kahapon','ngayon', 'bukas', 'mamaya', 'kanina', 
+            'sandali', 'matagal', 'mabilis', 'mabagal', 'agad', 'dahan-dahan','malapit', 'malayo', 'gitna', 
+            'harap', 'likod', 'kaliwa', 'kanan', 'itaas', 'ibaba', 'loob','labas', 'tabi', 'kanto', 'daan', 'kalye', 
+            'lungsod', 'bayan', 'barangay', 'bahagi', 'paligid','mesa', 'upuan', 'pinto', 'bintana', 'dingding', 
+            'kisame', 'sahig', 'hagdan', 'kusina', 'kwarto','sala', 'banyo', 'telepono', 'kompyuter', 'silya', 'lamesa', 
+            'kama', 'unan', 'kumot', 'plato','baso', 'kutsara', 'tinidor', 'kutsilyo', 'kaldero', 'kaserola', 'sandok', 
+            'tasa', 'takip', 'kalan','ilaw', 'kuryente', 'tubig', 'hangin', 'apoy', 'ulan', 'araw', 'buwan', 'bituin', 'ulap',
+            'bagyo', 'lindol', 'baha', 'init', 'lamig', 'hangin', 'alon', 'dagat', 'baybayin', 'pulo',
+            'gubat', 'bukid', 'bukirin', 'bukal', 'talon', 'ilog', 'sapa', 'tulay', 'kalsada', 'daan'
         ];
         
         const TypeMaster = () => {
@@ -166,7 +180,8 @@
                 const value = e.target.value;
                 setUserInput(value);
                 
-                if (!testActive && !testCompleted) {
+                // Start test only on first keystroke
+                if (!testActive && !testCompleted && value.length > 0) {
                     startTest();
                 }
                 
@@ -183,7 +198,7 @@
             
             const renderWordDisplay = () => {
                 const inputWords = userInput.split(/\s+/);
-                const displayLimit = testMode === 'words' ? testWords : 50;
+                const displayLimit = testMode === 'words' ? testWords :250
                 
                 return currentWords.slice(0, displayLimit).map((word, wordIndex) => {
                     const isCurrentWord = wordIndex === currentWordIndex;
@@ -284,7 +299,7 @@
                                                 key={duration}
                                                 className={`px-4 py-2 rounded-lg font-medium transition-all ${
                                                     testDuration === duration
-                                                        ? 'bg-white text-purple-900'
+                                                        ? 'bg-white text-black-900'
                                                         : 'glass-effect text-white hover:bg-white/20'
                                                 }`}
                                                 onClick={() => setTestDuration(duration)}
@@ -301,7 +316,7 @@
                                                 key={words}
                                                 className={`px-4 py-2 rounded-lg font-medium transition-all ${
                                                     testWords === words
-                                                        ? 'bg-white text-purple-900'
+                                                        ? 'bg-white text-black-900'
                                                         : 'glass-effect text-white hover:bg-white/20'
                                                 }`}
                                                 onClick={() => setTestWords(words)}
@@ -327,7 +342,7 @@
                             
                             <div className="text-center">
                                 <button
-                                    className="px-8 py-3 bg-white text-purple-900 rounded-xl font-semibold hover:bg-gray-100 transition-all transform hover:scale-105"
+                                    className="px-8 py-3 bg-white text-black-900 rounded-xl font-semibold hover:bg-gray-100 transition-all transform hover:scale-105"
                                     onClick={generateNewTest}
                                 >
                                     <i className="fas fa-redo mr-2"></i>Generate New Test
@@ -338,15 +353,15 @@
                         {/* Statistics */}
                         <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-8">
                             <div className="stat-card p-4 text-center">
-                                <div className="text-2xl font-bold text-purple-900">{wpm}</div>
+                                <div className="text-2xl font-bold text-black-900">{wpm}</div>
                                 <div className="text-sm text-gray-600">WPM</div>
                             </div>
                             <div className="stat-card p-4 text-center">
-                                <div className="text-2xl font-bold text-purple-900">{accuracy}%</div>
+                                <div className="text-2xl font-bold text-black-900">{accuracy}%</div>
                                 <div className="text-sm text-gray-600">Accuracy</div>
                             </div>
                             <div className="stat-card p-4 text-center">
-                                <div className="text-2xl font-bold text-purple-900">{cpm}</div>
+                                <div className="text-2xl font-bold text-black-900">{cpm}</div>
                                 <div className="text-sm text-gray-600">CPM</div>
                             </div>
                             <div className="stat-card p-4 text-center">
@@ -354,7 +369,7 @@
                                 <div className="text-sm text-gray-600">Errors</div>
                             </div>
                             <div className="stat-card p-4 text-center">
-                                <div className="text-2xl font-bold text-purple-900">
+                                <div className="text-2xl font-bold text-black-900">
                                     {testMode === 'time' ? formatTime(Math.max(0, testDuration - timeElapsed)) : formatTime(timeElapsed)}
                                 </div>
                                 <div className="text-sm text-gray-600">
@@ -395,56 +410,57 @@
                                 ref={inputRef}
                                 value={userInput}
                                 onChange={handleInputChange}
-                                onFocus={startTest}
                                 disabled={testCompleted}
-                                className="w-full p-4 border-2 border-gray-200 rounded-xl text-lg typing-font resize-none focus:border-purple-500 focus:outline-none transition-colors"
+                                className="w-full p-4 border-2 border-gray-200 rounded-xl text-lg typing-font resize-none focus:border-[var(--accent-gold)] focus:outline-none transition-colors text-[var(--text-dark)]"
                                 rows="3"
-                                placeholder={testActive ? "Keep typing..." : "Click here or start typing to begin..."}
-                            />
+                                placeholder={testActive ? "Keep typing..." : "Start typing to begin..."}
+                                />
                         </div>
                         
                         {/* Results Modal */}
-                        {testCompleted && (
+                            {testCompleted && (
                             <div className="results-modal fixed inset-0 flex items-center justify-center z-50 p-4">
                                 <div className="result-card p-8 max-w-md w-full text-center">
-                                    <h2 className="text-3xl font-bold text-purple-900 mb-6">Test Complete!</h2>
-                                    
-                                    <div className="grid grid-cols-2 gap-6 mb-8">
-                                        <div>
-                                            <div className="text-3xl font-bold text-purple-900">{wpm}</div>
-                                            <div className="text-gray-600">Words Per Minute</div>
-                                        </div>
-                                        <div>
-                                            <div className="text-3xl font-bold text-purple-900">{accuracy}%</div>
-                                            <div className="text-gray-600">Accuracy</div>
-                                        </div>
-                                        <div>
-                                            <div className="text-3xl font-bold text-purple-900">{cpm}</div>
-                                            <div className="text-gray-600">Characters Per Minute</div>
-                                        </div>
-                                        <div>
-                                            <div className="text-3xl font-bold text-red-500">{errors}</div>
-                                            <div className="text-gray-600">Total Errors</div>
-                                        </div>
+                                <h2 className="text-3xl font-bold text-[var(--primary-dark)] mb-6">
+                                    Test Complete!
+                                </h2>
+
+                                <div className="grid grid-cols-2 gap-6 mb-8">
+                                    <div>
+                                    <div className="text-3xl font-bold text-[var(--primary-dark)]">{wpm}</div>
+                                    <div className="text-gray-600">Words Per Minute</div>
                                     </div>
-                                    
-                                    <div className="flex gap-4 justify-center">
-                                        <button
-                                            className="px-6 py-3 bg-purple-900 text-white rounded-xl font-semibold hover:bg-purple-800 transition-all"
-                                            onClick={generateNewTest}
-                                        >
-                                            Try Again
-                                        </button>
-                                        <button
-                                            className="px-6 py-3 bg-gray-200 text-gray-700 rounded-xl font-semibold hover:bg-gray-300 transition-all"
-                                            onClick={() => setTestCompleted(false)}
-                                        >
-                                            Close
-                                        </button>
+                                    <div>
+                                    <div className="text-3xl font-bold text-[var(--primary-dark)]">{accuracy}%</div>
+                                    <div className="text-gray-600">Accuracy</div>
+                                    </div>
+                                    <div>
+                                    <div className="text-3xl font-bold text-[var(--primary-dark)]">{cpm}</div>
+                                    <div className="text-gray-600">Characters Per Minute</div>
+                                    </div>
+                                    <div>
+                                    <div className="text-3xl font-bold text-red-500">{errors}</div>
+                                    <div className="text-gray-600">Total Errors</div>
                                     </div>
                                 </div>
+
+                                <div className="flex gap-4 justify-center">
+                                    <button
+                                    className="px-6 py-3 bg-[var(--primary-dark)] text-white rounded-xl font-semibold hover:bg-[var(--primary-light)] transition-all"
+                                    onClick={generateNewTest}
+                                    >
+                                    Try Again
+                                    </button>
+                                    <button
+                                    className="px-6 py-3 bg-gray-200 text-gray-700 rounded-xl font-semibold hover:bg-gray-300 transition-all"
+                                    onClick={() => setTestCompleted(false)}
+                                    >
+                                    Close
+                                    </button>
+                                </div>
+                                </div>
                             </div>
-                        )}
+                            )}
                     </div>
                 </div>
             );
